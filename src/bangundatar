@@ -1,0 +1,45 @@
+open class BangunDatar(val nama: String) {
+
+    open fun luas(): Double {
+        return 0.0
+    }
+
+    open fun keliling(): Double {
+        return 0.0
+    }
+
+    fun info() {
+        println("ini bangun datar $nama nilai luas ${luas()} dan keliling sebesar ${keliling()}.")
+    }
+}
+
+class Persegi(val sisi: Double) : BangunDatar("Persegi") {
+
+    override fun luas(): Double {
+        return sisi * sisi
+    }
+
+    override fun keliling(): Double {
+        return sisi * 4
+    }
+}
+
+class PersegiPanjang(val panjang: Double, val lebar: Double) : BangunDatar("PersegiPanjang") {
+
+    override fun luas(): Double {
+        return panjang * lebar
+    }
+
+    override fun keliling(): Double {
+        return 2 * panjang + lebar
+    }
+}
+
+fun main() {
+    val bangunDatarPersegi: BangunDatar = Persegi(5.0)
+
+    val bangunDatarPersegiPanjang: BangunDatar = PersegiPanjang(10.0, 5.0)
+
+    bangunDatarPersegi.info()
+    bangunDatarPersegiPanjang.info()
+}
